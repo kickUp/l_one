@@ -1,0 +1,64 @@
+<dom-module id="navigation-menu">
+    <style is="custom-style">
+    paper-scroll-header-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--paper-grey-200, #eee);
+    }
+    /*    paper-toggle-button.blue {
+        margin-right: 1em;
+        --paper-toggle-button-unchecked-bar-color: var(--paper-grey-200);
+        --paper-toggle-button-unchecked-button-color: var(--paper-grey-200);
+        --paper-toggle-button-unchecked-ink-color: var(--paper-grey-200);
+        --paper-toggle-button-checked-bar-color: var(--paper-light-blue-900);
+        --paper-toggle-button-checked-button-color: var(--paper-light-blue-900);
+        --paper-toggle-button-checked-ink-color: var(--paper-light-blue-900);
+    }*/
+    
+    #paperDrawerPanel [main] {
+        background-color: var(--google-grey-100);
+    }
+    
+    #paperDrawerPanel [drawer] {
+        border-right: 1px solid var(--google-grey-300);
+    }
+    
+    #paperDrawerPanel[right-drawer] [drawer] {
+        border-left: 1px solid var(--google-grey-300);
+    }
+    
+    paper-button {
+        color: white;
+        margin: 10px;
+        background-color: var(--google-blue-700);
+        white-space: nowrap;
+    }
+    </style>
+    <template>
+        <id="paperDrawerPanel">
+            <div drawer>
+                <content select="tag[left-panel]"></content>
+            </div>
+            <div main>
+                <div>
+                    <paper-scroll-header-panel>
+                        <header-panel>
+                            <!-- <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button> -->
+                        </header-panel>
+                        <content select="courses-list"></content>
+                    </paper-scroll-header-panel>
+                </div>
+            </div>
+        </paper-drawer-panel>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: "navigation-menu"
+        });
+    })();
+    </script>
+</dom-module>

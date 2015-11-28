@@ -1,0 +1,57 @@
+<dom-module id="left-panel">
+    <style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto);
+    .content {
+        background-color: #D3D3D4;
+        height: 100%;
+        width: 100%;
+        padding-top: 4em;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .item {
+        padding: 1em .5em 1em;
+        margin: 0 2em 2em;
+        border-bottom: 1px solid grey;
+        border-top: 1px solid grey;
+        text-align: center;
+        color: black;
+    }
+    
+    .iron-selected {
+        background-color: #8588B6;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    </style>
+    <template>
+        <div class="content">
+            <iron-selector>
+                <div>
+                    <a href="/#">
+                        <div class="item">Аккумуляторы</div>
+                    </a>
+                </div>
+                <div>
+                    <a href="/#">
+                        <div class="item">Подарки</div>
+                    </a>
+                </div>
+                <div>
+                    <a href="/# ">
+                        <div class="item">Объявления</div>
+                    </a>
+                </div> 
+            </iron-selector>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: "left-panel"
+        });
+    })();
+    </script>
+</dom-module>

@@ -1,0 +1,64 @@
+ <dom-module id="order-button-mobile">
+ 	<style>
+ 		:host {
+ 			display: block;
+ 			min-width: 100%;
+ 			position: absolute;
+ 			/*display: none;*/
+ 			text-align: center;
+ 			position: fixed;
+			bottom: 0;
+			background: #fff;
+ 		}
+
+ 		:host:hover {
+ 			cursor: pointer;
+ 		}
+
+ 		.cnt {
+			padding: 1.5em;
+			font-weight: 600;
+ 		}
+
+ 		@media screen and (min-width: 640px) {
+ 			.cnt {
+ 				font-size: 24px;
+ 			}
+ 		}
+
+ 		@media (max-width: 639px) {
+ 			.cnt {
+ 				font-size: 20px;
+ 			}
+ 		}
+
+ 		paper-material {
+ 			min-height: 50%;
+ 		}
+ 	</style>
+ 	<template>
+ 		<paper-material center elevation="2">
+ 			<div class="cnt">
+ 				{{buttonText}}
+ 			</div>
+ 		</paper-material>
+ 	</template>
+ 	<script>
+ 		Polymer({
+ 			is: 'order-button-mobile',
+			behaviors: [
+      			Polymer.PaperButtonBehavior
+    		],
+ 			properties: {
+ 				url: {
+ 					value: "google.com/order",
+ 					notify: true
+ 				},
+ 				buttonText: {
+ 					value: "Order it!",
+ 					notify: true
+ 				}
+ 			}
+ 		});
+ 	</script>
+ </dom-module>

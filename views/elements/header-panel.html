@@ -1,0 +1,75 @@
+<dom-module id="header-panel">
+    <style is="custom-style">
+    :host {
+        background: blue;
+    }
+
+    paper-toolbar {
+        background-color: var(--google-blue-500, #4285f4);
+    }
+    
+    paper-toolbar iron-icon {
+        margin: 0 8px;
+    }
+    
+    .toggle {
+        position: absolute;
+        top: 1.7em;
+        right: 7em;
+        opacity: .5;
+    }
+
+    #title {
+      font-size: 30px;
+    }
+
+    #title a {
+      text-decoration: none;
+      color: white;
+      padding-right: 2em;
+    }
+
+    paper-button a {
+        text-decoration: none;
+        color: white;
+    } 
+    /* CSS rules for your element */
+    </style>
+    <template>
+        <!-- local DOM for your element -->
+        <paper-toolbar>
+            <content></content>
+             <!-- <paper-icon-button icon="arrow-back"></paper-icon-button> -->
+            <div id="title">VideoF</div>
+            <div class="flex">
+              <!-- <paper-button raised>create</paper-button> -->
+            </div>
+            <!-- <paper-icon-button icon="search"></paper-icon-button> -->
+        </paper-toolbar>
+        <!-- data bindings in local DOM -->
+    </template>
+    <script>
+    // element registration
+    Polymer({
+        is: "header-panel",
+        // add properties and methods on the element's prototype
+        ready: function() { },
+        properties: {
+            // declare properties for the element's public API
+            drawerPanelId: {
+                type:String,
+                value: "paperDrawerPanel"
+            }
+        },
+        _hideSideBar: function() {
+            var narrow = "force-narrow"; 
+            var targetElement = Polymer.dom(this.drawerPanelId).localTarget;
+
+            if(targetElement.hasAttribute(narrow)) 
+                targetElement.removeAttribute(narrow);
+            else 
+                targetElement.setAttribute(narrow);
+        }   
+    });
+    </script>
+</dom-module>
